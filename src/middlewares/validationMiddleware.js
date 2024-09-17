@@ -17,4 +17,14 @@ function validateData(schema) {
   };
 }
 
-module.exports = validateData;
+const validateBill = function(schema){
+  try {
+    schema.parse(req.body);
+    next();
+  } catch (e) {
+    console.error("Validation failed", e.errors);
+  }
+}
+
+
+module.exports = validateData ,validateBill

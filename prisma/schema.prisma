@@ -28,9 +28,10 @@ model Bill{
   rent Int
   electricity_unit Int
   month Month 
+  year Int
   internet_money Int?
   waste_money Int?
-  other   String
+  other   String?
   user User @relation(fields: [user_id], references: [id])
   user_id Int
 }

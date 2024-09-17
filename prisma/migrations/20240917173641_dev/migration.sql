@@ -34,9 +34,10 @@ CREATE TABLE "Bill" (
     "rent" INTEGER NOT NULL,
     "electricity_unit" INTEGER NOT NULL,
     "month" "Month" NOT NULL,
+    "year" INTEGER NOT NULL,
     "internet_money" INTEGER,
     "waste_money" INTEGER,
-    "other" TEXT NOT NULL,
+    "other" TEXT,
     "user_id" INTEGER NOT NULL,
 
     CONSTRAINT "Bill_pkey" PRIMARY KEY ("id")
