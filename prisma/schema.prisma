@@ -52,6 +52,7 @@ enum Month {
 enum Role {
   USER
   ADMIN
+  OWNER
 }
 
 model OTP{
