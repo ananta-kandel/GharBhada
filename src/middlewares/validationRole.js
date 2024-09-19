@@ -1,7 +1,7 @@
 function validateRole(role){
     return(req,res,next)=>{
         try{
-            if(req.user.role == "USER"){
+            if(req.user[0] == role || req.user.role == role){
               console.log("role is verifying sucessfully")
               next()
             }
