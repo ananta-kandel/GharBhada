@@ -10,7 +10,7 @@ model Owner{
   password String
   isValid Boolean @default(false)
   users User[]
-
+   role Role @default(OWNER)
 }
 model User {
   id      Int      @id @default(autoincrement())
@@ -33,6 +33,7 @@ model Bill{
   waste_money Int?
   other   String?
   user User @relation(fields: [user_id], references: [id])
+  total_amount Int? @default(0)
   user_id Int
 }
 enum Month {

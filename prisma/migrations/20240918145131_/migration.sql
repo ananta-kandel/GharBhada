@@ -2,7 +2,7 @@
 CREATE TYPE "Month" AS ENUM ('JANURARY', 'FEBURARY', 'MARCH', 'APRIL', 'MAY', 'JUN', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER');
 
 -- CreateEnum
-CREATE TYPE "Role" AS ENUM ('USER', 'ADMIN');
+CREATE TYPE "Role" AS ENUM ('USER', 'ADMIN', 'OWNER');
 
 -- CreateTable
 CREATE TABLE "Owner" (
@@ -11,6 +11,7 @@ CREATE TABLE "Owner" (
     "name" TEXT,
     "password" TEXT NOT NULL,
     "isValid" BOOLEAN NOT NULL DEFAULT false,
+    "role" "Role" NOT NULL DEFAULT 'OWNER',
 
     CONSTRAINT "Owner_pkey" PRIMARY KEY ("id")
 );
