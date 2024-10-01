@@ -1,6 +1,22 @@
-version: '3.8'  # or '3.9' if you prefer
+version: '3.8'
 
 services:
+  backend:
+    build: ./server
+    command: bash -c "npx prisma migrate dev && npx prisma generate && node index.js"
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://myuser:mypassword@postgres:5432/mydatabase
+    depends_on:
+      - postgres
+    networks:
+      - mynetwork
+  frontend:
+    build: ./client
+    ports:
+      - "80:80"
+  
   postgres:
     image: postgres:latest
     container_name: my-postgres-container
