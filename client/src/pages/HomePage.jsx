@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../components/layout'
+import Layout from '../components/Layout';
 import { Home, Users, CreditCard } from 'lucide-react';
 const FeatureCard = ({ title, description, Icon }) => (
     <div className="bg-white rounded-lg shadow-md p-6">
