@@ -28,7 +28,7 @@ jobs:
           context: ./server
           file: ./server/Dockerfile
           push: true
-          tags: tags: ${{ secrets.DOCKER_USERNAME }}/backend:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/backend:latest
        
 
   
