@@ -1,19 +1,13 @@
-name: Docker Compose Action
+name: CD
 
-on: [push]
-   
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ['dockerimage']
+    types: [completed]
+
 jobs:
-  build:
+  second:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Run docker-compose
-        uses: hoverkraft-tech/compose-action@v2.0.1
-        with:
-          compose-file: "./docker-compose.yml"
-
-      - name: Execute tests in the running services
-        run: |
-          docker-compose exec test-app pytest
+      - run: echo "Second action successfully finished!"
