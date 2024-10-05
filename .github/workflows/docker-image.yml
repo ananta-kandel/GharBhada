@@ -10,4 +10,11 @@ jobs:
   second:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Second action successfully finished!"
+      - name: Executing remote SSH commands using SSH key
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: docker-compose up -d
